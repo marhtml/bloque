@@ -8,7 +8,7 @@ program BloqueGame {
 	
 	game.addVisual(player)
 	player.cambiateDePosicion()
-	
+	configuracion.configurarTeclas()
 	
 	
 	
@@ -30,5 +30,10 @@ object configuracion {
 	method desactivarMovete() {
 		if (estaActivoElMovete) game.removeTickEvent("movete")
 		estaActivoElMovete = false
+	}
+	
+	method configurarTeclas() {
+		keyboard.a().onPressDo({ self.activarMovete() })
+		keyboard.z().onPressDo({ self.desactivarMovete() })
 	}
 }
